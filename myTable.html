@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+input{
+    height: 2rem;
+    width: 16rem;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    box-shadow: 4px 4px 8px gray;
+    border: 1rem gray;
+}
+h1 ,h2{
+    margin: auto;
+    text-align: center;
+}
+button{
+    height: 2rem;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    box-shadow: 4px 4px 8px gray;
+    border: 1rem gray;   
+}
+table{
+    text-align: center;
+    margin: auto;
+}
+    </style>
+</head>
+<body>
+     <h1>Todo App</h1><br><br>
+     <input type="text"placeholder="enter your task "><br>
+      <button>Add task</button>
+<br>
+    <h2>Data</h2><br>
+    
+    <Table border="1px">
+<tr>
+    <th>data</th>
+    <!-- <th>data</th> -->
+</tr>
+<tr>
+    <td>Here add your task.....<button class="Delete"> Delete</button></td>
+    <!-- <td>Eat<button class="Delete"> Delete</button></td> -->
+
+</tr>
+    </Table>
+    <script>
+      
+
+
+
+
+// project js
+
+let btn= document.querySelector("button");
+let td= document.querySelector("td");
+let inp= document.querySelector("input");
+
+btn.addEventListener("click",function(){
+    let item = document.createElement("td");
+    item.innerText = inp.value;
+
+let delbtn = document.createElement("button");
+delbtn.innerText = "Delete";
+delbtn.classList.add("Delete");
+
+item.appendChild(delbtn);
+    td.appendChild(item);
+
+    // console.log(inp.value);
+    
+    inp.value="";
+})
+
+let delbtns = document.querySelectorAll(".Delete");
+for(delbtn of delbtns){
+    delbtn.addEventListener("click",function(){
+        // console.log("element delete");
+        let par = this.parentElement;
+        console.log(par);
+        par.remove();
+    })
+}
+    </script>
+</body>
+</html>
